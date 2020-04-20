@@ -1,10 +1,7 @@
 <!--
 ============================================
-; Title: quiz.html
-; Author: Diandra McKenzie
-; Modified by: Sarah Kovar
-; Date: 25 March 2020
-; Description: HTML for JavaScript Quiz Group Project
+Authors: S. Kovar, D. McKenzie, K. Pierce
+Description: HTML for JavaScript Quiz Group Project
 ;===========================================
 -->
 
@@ -24,16 +21,15 @@
     <!-- Stylesheet - CSS -->
     <link rel="stylesheet" href="quiz.css">
 
-    <!-- Stylesheet - Fonts
+    <!-- Stylesheet - Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Shadows+Into+Light&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto|Shadows+Into+Light&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
 
     <!-- JavaScript Libraries -->
-    <script src="../KMPWebServices/knockout-3.5.1.js"></script>
+    <script src="knockout-3.5.1.js"></script>
 
 
-    <title>Exercise 6.3</title>
+    <title>KMPWebServices</title>
 
   </head>
   <body>
@@ -42,33 +38,22 @@
 
       <div id="quizContainer" class="quiz-wrapper">
           <!-- Wrapper for slides -->
-            <div class="question" id="question"></div>
 
-            <div class="answers">
-              <ul id="ul">
-                <li id="op1" onclick="button(this)" class="btn btn-outline btn-lg"></li>
-                <li id="op2" onclick="button(this)" class="btn btn-outline btn-lg"></li>
-                <li id="op3" onclick="button(this)" class="btn btn-outline btn-lg"></li>
-              </ul>
+            <!-- Question -->
+            <div class="question" data-bind="html: currentQuestion().question" ></div>
 
+             <!-- Possible Answers -->
+            <div class="answers" data-bind="foreach: currentQuestion().answers">
+                <div data-bind="html: answer" onclick="button(this)" class="btn btn-outline btn-lg"></div>
             </div>
 
-            <div class="score" id="scoreCard">
-             Score: 0
-            </div>
-
-            <div class="previous">
-              <button type="button" id="previousButton" class="btn btn-default mt-5"onclick="previous()"><i class="fa fa-chevron-left fa-3x"></i></button>
-            </div>
-
-
-
-            <div class="next">
-              <button type="button" id="nextButton" class="btn btn-default mt-5" onclick="next()"><i class="fa fa-chevron-right fa-3x"></i></button>
-            </div>
+             <!-- Button Controls -->
+            <button type="button" id="previousButton" class="btn btn-default mt-5" data-bind="click: prev, enable: index() > 0"><i class="fa fa-chevron-left fa-3x"></i></button>
+            <button type="button" id="nextButton" class="btn btn-default mt-5" data-bind="click: next, enable: index() < questions.length -1"><i class="fa fa-chevron-right fa-3x"></i></button>
 
       </div>
-      <script src="quiz.js"></script>
+      <script src="updated_quiz.js"></script>
+
 
   </body>
 </html>

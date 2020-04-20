@@ -1,10 +1,7 @@
 <!--
 ============================================
-; Title: quiz.html
-; Author: Diandra McKenzie
-; Modified by: Sarah Kovar
-; Date: 25 March 2020
-; Description: HTML for JavaScript Quiz Group Project
+Authors:S.Kovar, D. McKenzie, K. Pierce
+Description: JavaScript Quiz
 ;===========================================
 -->
 
@@ -33,7 +30,7 @@
     <script src="../KMPWebServices/knockout-3.5.1.js"></script>
 
 
-    <title>Exercise 6.3</title>
+    <title>JavaScript Quiz</title>
 
   </head>
   <body>
@@ -53,7 +50,7 @@
 
             </div>
 
-            <div class="score" id="scoreCard">
+            <div class="score" id="scoreCard" data-bind="text: score">
              Score: 0
             </div>
 
@@ -68,7 +65,7 @@
             </div>
 
       </div>
-      <script src="quiz.js"></script>
+      <script src="working_quiz.js"></script>
 
   </body>
 </html>
